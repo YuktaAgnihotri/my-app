@@ -6,9 +6,16 @@ interface Props {
   data: any[];
 }
 
+type SalesData ={
+    sales : number;
+    Date : number;
+    AveragePrice : number;
+    region : number;
+}
+
 export default function PriceFilter({ data }: Props) {
   const [AvgPrice, setAvgPrice] = useState("");
-  const [filtered, setFiltered] = useState([]);
+  const [filtered, setFiltered] = useState<SalesData[]>([]);
 
   const handleFilter = () => {
     if (!AvgPrice.trim()) {
