@@ -1,3 +1,5 @@
+'use client';
+
 import Papa from "papaparse";
 
 export async function parseCsv(csv: string) {

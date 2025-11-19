@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { parseCsv } from "@/app/utils/data/parseCsv";
+import { parseCsv } from "@/app/api/sales/parseCsv";
 import path from "path";
 import fs from "fs";
 
