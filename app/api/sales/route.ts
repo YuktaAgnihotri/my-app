@@ -1,9 +1,12 @@
+export const runtime = "nodejs";
+
+
 import { NextResponse } from "next/server";
-import { parseCsv } from "./parseCsv";
+
 import fs from "fs/promises";
 import path from "path";
 import Papa from "papaparse";
-export const runtime = "edge"; // or "nodejs" – both okay
+ // or "nodejs" – both okay
 
 export async function GET() {
   try {
