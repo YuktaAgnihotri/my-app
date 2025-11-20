@@ -1,5 +1,6 @@
 import DashboardClient from "./DashboardClient";
-
+export const dynamic = "force-dynamic"; 
+export const runtime = "edge";
 
 export default async function Dashboard() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/sales` , {
@@ -7,7 +8,6 @@ export default async function Dashboard() {
   });
  const data = await res.json();
 console.log("got data")
-console.log(data)
 
 
 // Filter when year changes
