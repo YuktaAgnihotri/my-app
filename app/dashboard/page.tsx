@@ -5,7 +5,9 @@ import DashboardClient from "./DashboardClient";
 
 
 export default async function Dashboard() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/sales`, {
+  const base = process.env.NEXT_PUBLIC_URL?.replace(/\/$/, "");
+
+  const data = await fetch(`${base}/api/sales`,{
   cache: "no-store",
 }).then((res) => res.json());
   
