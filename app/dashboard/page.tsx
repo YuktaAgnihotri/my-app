@@ -1,14 +1,15 @@
-
-
+export const dynamic = "force-dynamic";
 import DashboardClient from "./DashboardClient";
-export const dynamic = "force-dynamic"; 
 export const runtime = "edge";
+import { useEffect } from "react";
+
 
 export default async function Dashboard() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/sales` , {
-    cache: "no-store",
-  });
- const data = await res.json();
+  const data = await fetch(`${process.env.NEXT_PUBLIC_URL}\api\sales`, {
+  cache: "no-store",
+}).then((res) => res.json());
+  
+ 
 console.log("got data")
 
   return (
