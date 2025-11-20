@@ -1,6 +1,6 @@
 export const dynamic = "force-dynamic";
 import DashboardClient from "./DashboardClient";
-export const runtime = "edge";
+
 
 
 
