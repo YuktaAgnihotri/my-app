@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 import DashboardClient from "./DashboardClient";
 export const runtime = "edge";
-import { useEffect } from "react";
+
 
 
 export default async function Dashboard() {
