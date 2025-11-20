@@ -3,7 +3,7 @@ import { parseCsv } from "./parseCsv";
 
 export const runtime = "edge"; // or "nodejs" – both okay
 
-export async function GET() {
+{/*export async function GET() {
   try {
     console.log("📌 API called");
 
@@ -25,5 +25,25 @@ export async function GET() {
   } catch (err: any) {
     console.error("❌ API Error:", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
+  }
+}
+*/}
+
+
+
+export async function GET() {
+  try {
+    const base = process.env.NEXT_PUBLIC_URL;
+    if (!base) {
+      return new Response("Missing NEXT_PUBLIC_URL", { status: 500 });
+    }
+
+    const csvUrl = `${base.replace(/\/$/, "")}/kaggle-dataset/avocado.csv`;
+
+    return new Response(
+      `API Loaded\nBase: ${base}\nCSV URL: ${csvUrl}\nNow fetching...`
+    );
+  } catch (e: any) {
+    return new Response("ERROR: " + e.message, { status: 500 });
   }
 }

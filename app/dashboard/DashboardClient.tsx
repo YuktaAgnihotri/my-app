@@ -17,18 +17,19 @@ export default function DashboardClient({ data }: DashboardClientProps) {
 
   // Filter CSV rows whenever year changes
   const filteredData = useMemo(() => {
+    console.log('here in dashboard client')
     if (!data) return [];
 
     const filtered = data.filter((row: any) =>
       row.Date?.startsWith(String(year))
     );
-
+   console.log('fitered data')
     // Sort by date ASC
     return filtered.sort(
       (a: any, b: any) => new Date(a.Date).getTime() - new Date(b.Date).getTime()
     );
   }, [year, data]);
-
+ console.log("filterd data accorinf to date")
   return (
     <div className="flex flex-col gap-6 bg-am">
      

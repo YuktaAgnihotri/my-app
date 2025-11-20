@@ -16,6 +16,7 @@ console.log(data)
 
   return (
     <div className="bg-amber-100 w-full ">
+    
      <DashboardClient data={data}/>
     </div>
   );
