@@ -1,27 +1,26 @@
 import { NextResponse } from "next/server";
 import { parseCsv } from "./parseCsv";
-
+import fs from "fs/promises";
+import path from "path";
+import Papa from "papaparse";
 export const runtime = "edge"; // or "nodejs" – both okay
 
 export async function GET() {
   try {
     console.log("📌 API called");
 
-    const csvUrl = `${process.env.NEXT_PUBLIC_URL}/kaggle-dataset/avocado.csv`;
+    const filePath = path.join(process.cwd(), "public", "kaggle-dataset", "avocado.csv");
 
-    console.log("📌 Fetching:", csvUrl);
+    const fileData = await fs.readFile(filePath, "utf8");
 
-    const res = await fetch(csvUrl);
+    const parsed = Papa.parse(fileData, {
+      header: true,
+      dynamicTyping: true,
+    });
 
-    if (!res.ok) {
-      throw new Error(`Failed to fetch CSV. Status: ${res.status}`);
-    }
+    return NextResponse.json(parsed.data);
 
-    const csvText = await res.text();
-
-    const jsonData = await parseCsv(csvText);
-
-    return NextResponse.json(jsonData);
+    
   } catch (err: any) {
     console.error("❌ API Error:", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
