@@ -1,4 +1,4 @@
-'use client';
+
 
 import Papa from "papaparse";
 
