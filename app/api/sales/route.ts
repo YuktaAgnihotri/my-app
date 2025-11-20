@@ -3,7 +3,7 @@ import { parseCsv } from "./parseCsv";
 
 export const runtime = "edge"; // or "nodejs" – both okay
 
-{/*export async function GET() {
+export async function GET() {
   try {
     console.log("📌 API called");
 
@@ -27,10 +27,10 @@ export const runtime = "edge"; // or "nodejs" – both okay
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
-*/}
 
 
 
+{/*
 export async function GET() {
   try {
     const base = process.env.NEXT_PUBLIC_URL;
@@ -47,3 +47,4 @@ export async function GET() {
     return new Response("ERROR: " + e.message, { status: 500 });
   }
 }
+*/}

@@ -9,11 +9,6 @@ export default async function Dashboard() {
  const data = await res.json();
 console.log("got data")
 
-
-// Filter when year changes
-
-
-
   return (
     <div className="bg-amber-100 w-full ">
     
