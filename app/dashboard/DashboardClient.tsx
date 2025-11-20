@@ -4,7 +4,8 @@ import { useState, useMemo } from "react";
 import YearButtons from "../components/YearButton";
 import ChartSelector from "../components/ChartSelector";
 import ChartRenderer from "./ChartRender";
-import {LayoutDashboard} from 'lucide-react'
+
+
 import PriceFilter from "./PriceFilter";
 
 interface DashboardClientProps {
@@ -32,12 +33,13 @@ export default function DashboardClient({ data }: DashboardClientProps) {
  console.log("filterd data accorinf to date")
   return (
     <div className="flex flex-col gap-6 bg-am">
-     
-       <span> <LayoutDashboard size={100} color="blue" />  </span>  
-     <h1  className="text-3xl font-bold  top-0">Avocado Sales Dashboard </h1>
+     <h1  className="text-4xl lg:text-5xl  font-bold text-center  top-0">Avocado Sales Dashboard </h1>
 
       {/* Year Selection Buttons */}
-      <YearButtons selectedYear={year} onchange={setYear} />
+      <div className="flex  justify-center">
+        <YearButtons   selectedYear={year} onchange={setYear} />
+      </div>
+      
 
       {/* Dropdown for graph type */}
       <ChartSelector graph={graph} onChange={setGraph} />
