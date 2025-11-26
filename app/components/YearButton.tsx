@@ -5,7 +5,7 @@ interface Props {
 }
 
 export default function YearButtons({selectedYear, onchange} : Props){
-    const year = [2015 , 2016 , 2017 , 2018]
+    const year = [2015  , 2017 , 2018]
     return (<>
     <div className="flex gap-3">
         <ul>

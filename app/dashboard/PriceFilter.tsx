@@ -10,7 +10,7 @@ type SalesData ={
     sales : number;
     Date : number;
     AveragePrice : number;
-    region : number;
+    Region : number;
 }
 
 export default function PriceFilter({ data }: Props) {
@@ -78,7 +78,7 @@ export default function PriceFilter({ data }: Props) {
               <tr key={i} className="border-b hover:bg-gray-50">
                 <td className="p-2">{item.Date}</td>
                 <td className="p-2">${item.AveragePrice}</td>
-                <td className="p-2">{item.region}</td>
+                <td className="p-2">{item.Region}</td>
               </tr>
             ))}
           </tbody>
