@@ -19,9 +19,12 @@ export async function GET() {
     const parsed = Papa.parse(fileData, {
       header: true,
       dynamicTyping: true,
+      skipEmptyLines: true,
     });
 
+
     return NextResponse.json(parsed.data);
+
 
     
   } catch (err: any) {

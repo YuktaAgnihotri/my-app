@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo,useEffect } from "react";
 import YearButtons from "../components/YearButton";
 import ChartSelector from "../components/ChartSelector";
 import ChartRenderer from "./ChartRender";
@@ -18,18 +18,35 @@ export default function DashboardClient({ data }: DashboardClientProps) {
 
   // Filter CSV rows whenever year changes
   const filteredData = useMemo(() => {
-    console.log('here in dashboard client')
-    if (!data) return [];
+    console.log('here in dashboard client with data length' , data.length)
 
+    if (!data) return [];
     const filtered = data.filter((row: any) =>
-      row.Date?.startsWith(String(year))
+      String(row.Date).replace(/\s/g, "").startsWith(String(year))
     );
-   console.log('fitered data')
+
     // Sort by date ASC
     return filtered.sort(
       (a: any, b: any) => new Date(a.Date).getTime() - new Date(b.Date).getTime()
     );
   }, [year, data]);
+
+  console.log(" Objects key",Object.keys(data[0]));
+
+   useEffect(() => {
+  data.forEach((row, index) => {
+    console.log("Row", index, row.Date, row.Year);
+  });
+}, [data]);
+
+console.log("Incoming data length: ", data.length);
+
+useEffect(() => {
+  console.log("Sample row structure: after fix", data[0]);
+  console.log("date", data[0].Date)
+}, [data]);
+
+
  console.log("filterd data accorinf to date")
   return (
     <div className="flex flex-col gap-6 bg-am">

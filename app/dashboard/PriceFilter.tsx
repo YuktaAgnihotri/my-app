@@ -29,6 +29,7 @@ export default function PriceFilter({ data }: Props) {
     });
 
     setFiltered(filteredData);
+    console.log("reached inside price filter")
   };
 
   return (

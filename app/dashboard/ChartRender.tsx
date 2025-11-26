@@ -20,14 +20,15 @@ interface Props {
 data: any[];
 type: string;
 }
-
+console.log("Reached chart render")
 
 export default function ChartRenderer({ data, type }: Props) {
 if (!data || data.length === 0) return <p>No data found</p>;
 
-
+console.log("into chant-render")
 if (type === "bar")
 return (
+<>
 <ResponsiveContainer width="100%" height={400}>
 <BarChart data={data}>
 <XAxis dataKey="Date" />
@@ -37,6 +38,7 @@ return (
 <Bar dataKey="AveragePrice" fill="#4ade80" />
 </BarChart>
 </ResponsiveContainer>
+</>
 );
 
 
